@@ -1,8 +1,8 @@
-## Interface: 110205
+## Interface: 120000
 ## Title:|cffd6266cFastTask Flash & Alert|r
 ## Notes: Blinkt das Taskleisten-Icon und spielt den Raid-Warning-Ton bei allen relevanten Events
 ## Author: BloodDragon2580
-## Version: 2.5
+## Version: 2.6
 ## SavedVariables: FastTaskFlashDB
 ## IconTexture: Interface\AddOns\FastTaskFlash\Media\Texture\logo
 
