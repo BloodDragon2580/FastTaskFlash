@@ -85,7 +85,7 @@ local function RegisterRuntimeEvents()
 
 	-- Damage-Erkennung ohne CombatLog
 	f:RegisterUnitEvent("UNIT_HEALTH", "player")
-	lastHP = UnitHealth("player")
+	lastHP = tonumber(tostring(UnitHealth("player")))
 end
 
 -- Nur “sichere” Start-Events sofort
@@ -110,11 +110,29 @@ f:SetScript("OnEvent", function(self, event, arg1, ...)
 	end
 
 	if event == "UNIT_HEALTH" then
-		local hp = UnitHealth("player")
-		if lastHP and hp and hp > 0 and hp < lastHP then
+		if arg1 ~= "player" then return end
+
+		-- "secret value" safe machen: erst tostring(), dann tonumber()
+		local hp = tonumber(tostring(UnitHealth("player")))
+		if not hp then
+			return
+		end
+
+		if hp <= 0 then
+			lastHP = hp
+			return
+		end
+
+		if type(lastHP) ~= "number" then
+			lastHP = hp
+			return
+		end
+
+		if hp < lastHP then
 			-- HP drop -> vermutlich Schaden
 			FastTaskNotify(0.35)
 		end
+
 		lastHP = hp
 		return
 	end
