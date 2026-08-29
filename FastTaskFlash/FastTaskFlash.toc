@@ -2,7 +2,7 @@
 ## Title:|cffd6266cFastTask Flash & Alert|r
 ## Notes: Blinkt das Taskleisten-Icon und spielt einen Warnton bei Nachrichten, Angriffen, Einladungen, PvP-Warteschlangen und weiteren direkten Ereignissen
 ## Author: BloodDragon2580
-## Version: 4.5
+## Version: 4.6
 ## SavedVariables: FastTaskFlashDB
 ## IconTexture: Interface\AddOns\FastTaskFlash\Media\Texture\logo
 
